@@ -16,7 +16,8 @@ public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        Path path = Paths.get("/home/darthmantis/Documents/sample.log");
+        String pathToFile = System.getProperty("path");
+        Path path = Paths.get(pathToFile);
 
         ReportFormat reportFormat = new ReportFormat("----", 4);
 
