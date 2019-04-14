@@ -25,7 +25,7 @@ public class App {
     }
 
     /**
-     * Before execution, system property must be set (-Dpath=path_to_log_file)
+     * Before execution, set system property (-Dpath=path_to_log_file)
      */
     public static void main(String[] args) {
         String pathToFile = System.getProperty("path");
