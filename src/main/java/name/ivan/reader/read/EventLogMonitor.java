@@ -13,33 +13,37 @@ import java.util.function.Predicate;
 /**
  *
  */
-public class EventReader {
-    private static final Logger LOGGER = LoggerFactory.getLogger(EventReader.class);
+public class EventLogMonitor implements LogMonitor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventLogMonitor.class);
     Reporter reporter;
     Reader reader;
     Storage<String, String> storage;
     Predicate<String> eventPredicate;
 
-    public EventReader(Reporter reporter, Reader reader, Storage storage) {
+    public EventLogMonitor(Reporter reporter, Reader reader, Storage storage) {
         this.reporter = reporter;
         this.reader = reader;
         this.storage = storage;
     }
 
+    @Override
     public void setReader(Reader reader) {
         LOGGER.info("Change reader: {}", reader);
         this.reader = reader;
     }
 
+    @Override
     public void setReporter(Reporter reporter) {
         LOGGER.info("Change reporter: {}", reporter);
         this.reporter = reporter;
     }
 
-    void setPredicate(Predicate<String> predicate) {
+    @Override
+    public void setPredicate(Predicate<String> predicate) {
         this.eventPredicate = predicate;
     }
 
+    @Override
     public void process() {
 
         if (eventPredicate == null) {
@@ -59,7 +63,7 @@ public class EventReader {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", EventReader.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", EventLogMonitor.class.getSimpleName() + "[", "]")
                 .add("reporter=" + reporter)
                 .add("reader=" + reader)
                 .add("storage=" + storage)

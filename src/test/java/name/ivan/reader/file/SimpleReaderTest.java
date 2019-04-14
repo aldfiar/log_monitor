@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class SimpleReaderTest extends ParentEventReaderTest {
+public class SimpleReaderTest extends ParentEventLogMonitorTest {
 
     @BeforeMethod
     public void createReader() {

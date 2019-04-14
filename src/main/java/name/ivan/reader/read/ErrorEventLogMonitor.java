@@ -7,15 +7,15 @@ import name.ivan.reader.store.Storage;
 
 import java.util.StringJoiner;
 
-public class ErrorEventReader extends EventReader {
-    public ErrorEventReader(Reporter reporter, Reader reader, Storage storage) {
+public class ErrorEventLogMonitor extends EventLogMonitor {
+    public ErrorEventLogMonitor(Reporter reporter, Reader reader, Storage storage) {
         super(reporter, reader, storage);
         super.eventPredicate = Conditions.isError();
     }
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", ErrorEventReader.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", ErrorEventLogMonitor.class.getSimpleName() + "[", "]")
                 .add("reporter=" + reporter)
                 .toString();
     }

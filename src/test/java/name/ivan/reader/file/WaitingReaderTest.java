@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public class WaitingReaderTest extends ParentEventReaderTest {
+public class WaitingReaderTest extends ParentEventLogMonitorTest {
     @BeforeMethod
     public void createReader() throws FileNotFoundException {
         reader = new WaitingReader(file);

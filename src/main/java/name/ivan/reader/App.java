@@ -2,8 +2,8 @@ package name.ivan.reader;
 
 import name.ivan.reader.file.Reader;
 import name.ivan.reader.file.SimpleReader;
-import name.ivan.reader.read.ErrorEventReader;
-import name.ivan.reader.read.EventReader;
+import name.ivan.reader.read.ErrorEventLogMonitor;
+import name.ivan.reader.read.EventLogMonitor;
 import name.ivan.reader.report.ReportFormat;
 import name.ivan.reader.report.impl.SimpleReporter;
 import name.ivan.reader.report.print.ConsolePrinter;
@@ -34,7 +34,7 @@ public class App {
 
         Storage<String, String> storage = new SessionEventStorage();
 
-        EventReader eventReader = new ErrorEventReader(simpleReporter, reader, storage);
-        eventReader.process();
+        EventLogMonitor eventLogMonitor = new ErrorEventLogMonitor(simpleReporter, reader, storage);
+        eventLogMonitor.process();
     }
 }

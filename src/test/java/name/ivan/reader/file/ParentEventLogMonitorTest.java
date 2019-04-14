@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class ParentEventReaderTest {
+public abstract class ParentEventLogMonitorTest {
     private static final String LOG_NAME = "sample.log";
     Reader reader;
     Path file;

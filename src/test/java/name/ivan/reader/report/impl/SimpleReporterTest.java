@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SimpleReporterTest {
-    SimpleReporter reporter;
+    private SimpleReporter reporter;
     int size;
     private String separator = "-";
     private int limit = 4;
