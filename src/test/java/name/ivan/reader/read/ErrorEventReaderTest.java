@@ -13,6 +13,6 @@ public class ErrorEventReaderTest extends ParentEventReaderTest {
 
     @Test
     public void testEventReader() {
-        eventReader.monitor();
+        eventReader.process();
     }
 }

@@ -40,7 +40,7 @@ public class EventReader {
         this.eventPredicate = predicate;
     }
 
-    public void monitor() {
+    public void process() {
 
         if (eventPredicate == null) {
             throw new IllegalStateException("Set predicate first");

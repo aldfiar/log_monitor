@@ -14,6 +14,12 @@ public class EventEventReaderTest extends ParentEventReaderTest {
 
     @Test
     public void testEventReader() {
-        eventReader.monitor();
+        eventReader.process();
+    }
+
+    @Test(expectedExceptions = IllegalStateException.class)
+    public void testPredicateNotSet() {
+        eventReader.setPredicate(null);
+        eventReader.process();
     }
 }

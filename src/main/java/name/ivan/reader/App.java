@@ -7,6 +7,7 @@ import name.ivan.reader.read.EventReader;
 import name.ivan.reader.report.ReportFormat;
 import name.ivan.reader.report.impl.SimpleReporter;
 import name.ivan.reader.report.print.ConsolePrinter;
+import name.ivan.reader.report.print.Printer;
 import name.ivan.reader.store.SessionEventStorage;
 import name.ivan.reader.store.Storage;
 import org.slf4j.Logger;
@@ -27,13 +28,13 @@ public class App {
         Reader reader = new SimpleReader(path);
 
         ReportFormat reportFormat = new ReportFormat("----", 4);
-        ConsolePrinter consolePrinter = new ConsolePrinter();
+        Printer printer = new ConsolePrinter();
 
-        SimpleReporter simpleReporter = new SimpleReporter(reportFormat, consolePrinter);
+        SimpleReporter simpleReporter = new SimpleReporter(reportFormat, printer);
 
-        Storage storage = new SessionEventStorage();
+        Storage<String, String> storage = new SessionEventStorage();
 
         EventReader eventReader = new ErrorEventReader(simpleReporter, reader, storage);
-        eventReader.monitor();
+        eventReader.process();
     }
 }
