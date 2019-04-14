@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.function.Predicate;
 
-public abstract class EventReader {
+public class EventReader {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventReader.class);
     Reporter reporter;
     Reader reader;
@@ -30,6 +30,10 @@ public abstract class EventReader {
         this.reporter = reporter;
     }
 
+    void setPredicate(Predicate<String> predicate) {
+        this.eventPredicate = predicate;
+    }
+
     public void monitor() {
 
         if (eventPredicate == null) {
@@ -41,8 +45,6 @@ public abstract class EventReader {
         read.forEach((s) -> {
             String key = storage.add(s);
             if (eventPredicate.test(s)) {
-                LOGGER.debug("Find event. Generate report");
-
                 List<String> events = storage.getEvents(key);
                 reporter.generateReport(events);
             }

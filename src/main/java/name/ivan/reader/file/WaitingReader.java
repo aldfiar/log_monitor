@@ -12,7 +12,7 @@ import java.util.List;
 
 public class WaitingReader implements Reader {
     private static final Logger LOGGER = LoggerFactory.getLogger(WaitingReader.class);
-    private static final long sleepTime = 500;
+    private static final long sleepTime = 100;
     private static final int tries = 5;
     private final RandomAccessFile file;
     private long pointer;
