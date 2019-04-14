@@ -3,10 +3,10 @@ package name.ivan.reader.file;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +17,8 @@ public class WaitingReader implements Reader {
     private final RandomAccessFile file;
     private long pointer;
 
-    public WaitingReader(File file) throws FileNotFoundException {
-        this.file = new RandomAccessFile(file, "r");
+    public WaitingReader(Path path) throws FileNotFoundException {
+        this.file = new RandomAccessFile(path.toFile(), "r");
     }
 
     public List<String> read() {

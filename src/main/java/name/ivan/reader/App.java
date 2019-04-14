@@ -1,6 +1,7 @@
 package name.ivan.reader;
 
-import name.ivan.reader.file.WaitingReader;
+import name.ivan.reader.file.Reader;
+import name.ivan.reader.file.SimpleReader;
 import name.ivan.reader.read.ErrorEventReader;
 import name.ivan.reader.read.EventReader;
 import name.ivan.reader.report.ReportFormat;
@@ -11,7 +12,6 @@ import name.ivan.reader.store.Storage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -24,13 +24,7 @@ public class App {
     public static void main(String[] args) {
         String pathToFile = System.getProperty("path");
         Path path = Paths.get(pathToFile);
-        WaitingReader reader = null;
-        try {
-            reader = new WaitingReader(path.toFile());
-        } catch (FileNotFoundException e) {
-            LOGGER.warn("File: {} not found", path, e.fillInStackTrace());
-            throw new IllegalStateException("Wrong path");
-        }
+        Reader reader = new SimpleReader(path);
 
         ReportFormat reportFormat = new ReportFormat("----", 4);
         ConsolePrinter consolePrinter = new ConsolePrinter();

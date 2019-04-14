@@ -13,7 +13,7 @@ public abstract class EventReader {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventReader.class);
     Reporter reporter;
     Reader reader;
-    Storage storage;
+    Storage<String, String> storage;
     Predicate<String> eventPredicate;
 
     public EventReader(Reporter reporter, Reader reader, Storage storage) {

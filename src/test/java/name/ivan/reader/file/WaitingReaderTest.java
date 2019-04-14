@@ -21,7 +21,7 @@ public class WaitingReaderTest {
 
     @Test
     public void testReadLine() throws InterruptedException, FileNotFoundException {
-        WaitingReader randomAccessFileReader = new WaitingReader(file.toFile());
+        WaitingReader randomAccessFileReader = new WaitingReader(file);
         for (int i = 0; i < 5; i++) {
             System.out.println(randomAccessFileReader.read());
         }
