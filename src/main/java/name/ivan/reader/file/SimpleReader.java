@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class SimpleReader implements Reader {
@@ -31,5 +32,12 @@ public class SimpleReader implements Reader {
         }
 
         return list;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", SimpleReader.class.getSimpleName() + "[", "]")
+                .add("path=" + path)
+                .toString();
     }
 }

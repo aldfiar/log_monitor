@@ -9,6 +9,7 @@ import java.io.RandomAccessFile;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class WaitingReader implements Reader {
     private static final Logger LOGGER = LoggerFactory.getLogger(WaitingReader.class);
@@ -62,4 +63,11 @@ public class WaitingReader implements Reader {
         return list;
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", WaitingReader.class.getSimpleName() + "[", "]")
+                .add("file=" + file)
+                .add("pointer=" + pointer)
+                .toString();
+    }
 }

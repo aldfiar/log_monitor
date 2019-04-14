@@ -2,10 +2,7 @@ package name.ivan.reader.store;
 
 import name.ivan.reader.find.KeyFinder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class AbstractStorage<T, Z> implements Storage<T, Z> {
     private final KeyFinder<T, Z> finder;
@@ -25,5 +22,13 @@ public abstract class AbstractStorage<T, Z> implements Storage<T, Z> {
         List<Z> strings = map.get(key);
         strings.add(line);
         return key;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", AbstractStorage.class.getSimpleName() + "[", "]")
+                .add("finder=" + finder)
+                .add("map=" + map)
+                .toString();
     }
 }
