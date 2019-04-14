@@ -28,13 +28,13 @@ public class EventLogMonitor implements LogMonitor {
 
     @Override
     public void setReader(Reader reader) {
-        LOGGER.info("Change reader: {}", reader);
+        LOGGER.debug("Change reader: {}", reader);
         this.reader = reader;
     }
 
     @Override
     public void setReporter(Reporter reporter) {
-        LOGGER.info("Change reporter: {}", reporter);
+        LOGGER.debug("Change reporter: {}", reporter);
         this.reporter = reporter;
     }
 

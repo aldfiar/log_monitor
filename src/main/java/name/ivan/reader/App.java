@@ -24,6 +24,7 @@ public class App {
      */
     public static void main(String[] args) {
         String pathToFile = System.getProperty("path");
+        LOGGER.info("Path to log file: {}", pathToFile);
         Path path = Paths.get(pathToFile);
         Reader reader = new SimpleReader(path);
 
