@@ -2,7 +2,6 @@ package name.ivan.reader;
 
 import name.ivan.reader.file.Reader;
 import name.ivan.reader.file.SimpleReader;
-import name.ivan.reader.read.ErrorEventLogMonitor;
 import name.ivan.reader.read.EventLogMonitor;
 import name.ivan.reader.report.ReportFormat;
 import name.ivan.reader.report.impl.SimpleReporter;
@@ -30,7 +29,6 @@ public class AppTest {
     private Path appResult = Paths.get("./app_result.txt");
     private Path source;
     private Path knownResult;
-    private Path resultPath;
     private EventLogMonitor eventLogMonitor;
 
 
@@ -50,12 +48,13 @@ public class AppTest {
         SimpleReporter simpleReporter = new SimpleReporter(reportFormat, printer);
 
         Storage<String, String> storage = new SessionEventStorage();
-        eventLogMonitor = new ErrorEventLogMonitor(simpleReporter, reader, storage);
+        eventLogMonitor = new EventLogMonitor(simpleReporter, reader, storage);
     }
 
     @Test
     public void testApp() throws IOException {
-        eventLogMonitor.process();
+        App app = new App(eventLogMonitor);
+        app.run();
         BufferedReader reader = Files.newBufferedReader(appResult);
         List<String> appWorkResult = reader.lines().collect(Collectors.toList());
 
