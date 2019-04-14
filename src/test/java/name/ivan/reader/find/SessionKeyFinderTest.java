@@ -1,17 +1,17 @@
-package name.ivan.monitor.find;
+package name.ivan.reader.find;
 
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SessionKeyTest {
+public class SessionKeyFinderTest {
     private String key = "[one]";
     private String testString = String.format("11.04.1999 %s What`s happened", key);
 
     @Test
     public void testSessionFind() {
-        SessionKey sessionKey = new SessionKey();
-        String keyFromFinder = sessionKey.find(testString);
+        SessionKeyFinder sessionKeyFinder = new SessionKeyFinder();
+        String keyFromFinder = sessionKeyFinder.find(testString);
         assertEquals(keyFromFinder, key);
     }
 

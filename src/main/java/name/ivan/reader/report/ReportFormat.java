@@ -1,4 +1,4 @@
-package name.ivan.monitor.report;
+package name.ivan.reader.report;
 
 public class ReportFormat {
     private final String separator;

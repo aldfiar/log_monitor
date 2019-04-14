@@ -1,4 +1,4 @@
-package name.ivan.monitor;
+package name.ivan.reader;
 
 import java.util.function.Predicate;
 

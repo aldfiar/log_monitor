@@ -1,8 +1,8 @@
-package name.ivan.monitor.report.impl;
+package name.ivan.reader.report.impl;
 
-import name.ivan.monitor.report.ReportFormat;
-import name.ivan.monitor.report.Reporter;
-import name.ivan.monitor.report.print.Printer;
+import name.ivan.reader.report.ReportFormat;
+import name.ivan.reader.report.Reporter;
+import name.ivan.reader.report.print.Printer;
 
 import java.util.List;
 import java.util.stream.Collectors;

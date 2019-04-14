@@ -1,4 +1,4 @@
-package name.ivan.monitor.read;
+package name.ivan.reader.file;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,14 +10,14 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RandomReader implements Reader {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RandomReader.class);
+public class WaitingReader implements Reader {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WaitingReader.class);
     private static final long sleepTime = 500;
     private static final int tries = 5;
     private final RandomAccessFile file;
     private long pointer;
 
-    public RandomReader(File file) throws FileNotFoundException {
+    public WaitingReader(File file) throws FileNotFoundException {
         this.file = new RandomAccessFile(file, "r");
     }
 

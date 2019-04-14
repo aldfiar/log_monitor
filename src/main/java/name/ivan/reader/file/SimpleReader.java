@@ -1,4 +1,4 @@
-package name.ivan.monitor.read;
+package name.ivan.reader.file;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

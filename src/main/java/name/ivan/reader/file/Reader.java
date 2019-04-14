@@ -1,4 +1,4 @@
-package name.ivan.monitor.read;
+package name.ivan.reader.file;
 
 import java.util.List;
 

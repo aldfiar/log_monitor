@@ -1,4 +1,4 @@
-package name.ivan.monitor.report.print;
+package name.ivan.reader.report.print;
 
 import java.util.List;
 
