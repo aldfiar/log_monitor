@@ -1,7 +1,6 @@
 package name.ivan.reader;
 
 import name.ivan.reader.file.WaitingReader;
-import name.ivan.reader.find.SessionKeyFinder;
 import name.ivan.reader.read.ErrorEventReader;
 import name.ivan.reader.read.EventReader;
 import name.ivan.reader.report.ReportFormat;
@@ -38,7 +37,7 @@ public class App {
 
         SimpleReporter simpleReporter = new SimpleReporter(reportFormat, consolePrinter);
 
-        Storage storage = new SessionEventStorage(new SessionKeyFinder());
+        Storage storage = new SessionEventStorage();
 
         EventReader eventReader = new ErrorEventReader(simpleReporter, reader, storage);
         eventReader.monitor();
