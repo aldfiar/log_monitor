@@ -4,6 +4,13 @@ import name.ivan.reader.find.KeyFinder;
 
 import java.util.*;
 
+/**
+ * @param <T> type of key
+ * @param <Z> type of stored data
+ *            <p>
+ *            Store information, associated with key
+ *            Key extracts from data with help of {@link KeyFinder}
+ */
 public abstract class AbstractStorage<T, Z> implements Storage<T, Z> {
     private final KeyFinder<T, Z> finder;
     private Map<T, List<Z>> map = new HashMap<>();

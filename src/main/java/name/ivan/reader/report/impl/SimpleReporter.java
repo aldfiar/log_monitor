@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
+/**
+ * Generate with conditions from {@link ReportFormat}
+ * Print formatted report via {@link Printer}
+ */
 public class SimpleReporter implements Reporter {
     private ReportFormat reportFormat;
     private Printer printer;

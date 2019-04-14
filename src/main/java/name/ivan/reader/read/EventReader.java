@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.StringJoiner;
 import java.util.function.Predicate;
 
+/**
+ *
+ */
 public class EventReader {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventReader.class);
     Reporter reporter;
