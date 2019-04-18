@@ -4,6 +4,7 @@ import name.ivan.reader.report.ReportFormat;
 import name.ivan.reader.report.Reporter;
 import name.ivan.reader.report.print.Printer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ public class SimpleReporter implements Reporter {
 
         List<String> collect;
         if (linesForSession > count) {
-            collect = stringList;
+            collect = new ArrayList<>(stringList);
         } else {
             collect = stringList.stream()
                     .skip(count - linesForSession)
